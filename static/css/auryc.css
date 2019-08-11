@@ -1,0 +1,501 @@
+﻿/**********************************************************************************************************************
+                                               Config des Fonts
+ **********************************************************************************************************************/
+
+@font-face {
+    font-family: 'robotoregular';
+    src: url('../font/roboto/roboto-regular-webfont.woff2') format('woff2'), url('../font/roboto/roboto-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'robotoblack';
+    src: url('../font/roboto/roboto-black-webfont.woff2') format('woff2'), url('../font/roboto/roboto-black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'robotoblack_italic';
+    src: url('../font/roboto/roboto-blackitalic-webfont.woff2') format('woff2'), url('../font/roboto/roboto-blackitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'robotobold';
+    src: url('../font/roboto/roboto-bold-webfont.woff2') format('woff2'), url('../font/roboto/roboto-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'robotobold_condensed';
+    src: url('../font/roboto/roboto-boldcondensed-webfont.woff2') format('woff2'), url('../font/roboto/roboto-boldcondensed-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'robotobold_condensed_italic';
+    src: url('../font/roboto/roboto-boldcondenseditalic-webfont.woff2') format('woff2'), url('../font/roboto/roboto-boldcondenseditalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'robotobold_condensed_italic';
+    src: url('../font/roboto/roboto-boldcondenseditalic-webfont.woff2') format('woff2'), url('../font/roboto/roboto-boldcondenseditalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'robotoitalic';
+    src: url('../font/roboto/roboto-italic-webfont.woff2') format('woff2'), url('../font/roboto/roboto-italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'robotolight';
+    src: url('../font/roboto/roboto-light-webfont.woff2') format('woff2'), url('../font/roboto/roboto-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'robotolight_italic';
+    src: url('../font/roboto/roboto-lightitalic-webfont.woff2') format('woff2'), url('../font/roboto/roboto-lightitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'robotomedium';
+    src: url('../font/roboto/roboto-medium-webfont.woff2') format('woff2'), url('../font/roboto/roboto-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'robotomedium_italic';
+    src: url('../font/roboto/roboto-mediumitalic-webfont.woff2') format('woff2'), url('../font/roboto/roboto-mediumitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+/**********************************************************************************************************************
+                                        Definition des variables
+***********************************************************************************************************************/
+:root {
+    --white: #f9f5f1;
+    --red: #ff0d00;
+    --move_left: -20vw;
+    --move_right: 0vw;
+    --left: 44.95%;
+    --top: 7%;
+    --rotate: 0;
+}
+
+/**********************************************************************************************************************
+                                           CSS général
+ *********************************************************************************************************************/
+body {
+    overflow-x: hidden;
+    background-color: var(--white);
+    font-family: robotobold;
+}
+
+
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(99, 1vw);
+    grid-template-rows: repeat(99, 1vh);
+}
+
+.flex {
+    display: flex;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-section {
+    font-size: 2vmax;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+}
+
+.separator {
+    height: 3px;
+    background: black;
+    opacity: 0.99;
+    transform: translateX(-1vmax);
+}
+
+/*gestion des anims des liens*/
+
+a {
+    text-decoration: none;
+    color: rgba(0,0,0,0.8) !important;
+    background: linear-gradient(to top, rgba(255, 13, 0, 0.8) 0%, rgba(255, 13, 0, 0.8) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
+    transition: background-size .5s;
+    cursor: pointer;
+}
+
+a:hover {
+    background-size: 100% 100%;
+}
+
+a.email{
+    background-size: 100% 100%;
+}
+.email:hover{
+    animation: underlines 1s;
+}
+
+
+@keyframes underlines {
+    from {
+        background-size: 100% 100%;
+        background-position: bottom right;
+    }
+
+    50% {
+        background-size: 0 100%;
+        background-position: bottom right;
+    }
+
+    50.01% {
+        background-position: bottom left;
+    }
+
+    100% {
+        background-size: 100% 100%;
+        background-position: bottom left;
+    }
+}
+
+
+/* Gestion du menu */
+.nav-is-stuck .navBar {
+	position: fixed;
+	top: 0;
+	left: 2%;
+	animation: stickAnim 1s;
+}
+
+@keyframes stickAnim {
+	0% {
+		transform: translateY(-86px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+.nav-no-stuck .navBar{
+    animation: endStickAnim 1s;
+}
+
+@keyframes endStickAnim {
+	0% {
+		transform: translateX(20vw);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
+/**********************************************************************************************************************
+                                                CSS home
+***********************************************************************************************************************/
+
+.home {
+        width: 100vw;
+        height: 100vh;
+        margin-bottom: 18vh;
+}
+
+    .navBar {
+        position: absolute;
+        z-index: 2;
+        top : 0%;
+        right: 10%;
+        font-size: 1.2vmax;
+        font-weight: 500;
+        animation: 1s;
+    }
+
+    .title {
+        grid-row: 2/10;
+        grid-column: 2/ 50;
+        justify-content: space-between;
+    }
+
+    .title h4 {
+            cursor: default;
+            font-family: "robotomedium_italic";
+    }
+
+    .desc {
+        grid-row: 26/30;
+        grid-column: 10/25;
+        font-size: 2vmax;
+    }
+
+    .dev {
+        grid-column: 35/99;
+        grid-row: 7;
+    }
+
+    .web {
+        grid-column: 1/99;
+        grid-row: 47/99;
+    }
+
+    .dev h1, .web h1 {
+            font-size: 24vmax;
+            font-family: robotobold;
+            font-weight: 600;
+            cursor: default;
+    }
+
+    .dev h1 {
+        transform: translateX(var(--move_right));
+    }
+
+    .web h1 {
+        transform: translateX(var(--move_left));
+    }
+
+    .desc-mobile{
+        display: none;
+    }
+
+    @media (max-width: 992px){
+        .home{
+            height: 50vh;
+        }
+        .desc-title, .dev, .web{
+            display: none;
+        }
+        .desc-mobile{
+            display: block;
+        }
+        .desc-mobile h1{
+            font-size: 20vmax;
+            font-family: robotobold;
+            font-weight: 600;
+            cursor: default;
+        }
+        .left-title{
+            position: absolute;
+            left:-5%;
+            top:41%;
+        }
+        .right-title{
+            position: absolute;
+            left: 38%;
+            top:21%;
+        }
+
+        .desc {
+            grid-row: 17/30;
+            grid-column: 1/100;
+            font-size: 2vmax;
+            text-align: center;
+        }
+    }
+
+
+
+/***********************************************************************************************************************
+                                            CSS de la page a propos
+ **********************************************************************************************************************/
+.text-me {
+    font-weight: 600;
+    font-size: 4vmax;
+}
+
+.text-name {
+    -webkit-text-stroke: 2px;
+    -webkit-text-stroke-color: black;
+    color: var(--white);
+    font-family: robotobold;
+}
+
+@media (max-width: 992px) {
+    .text-stroke-red {
+        color: var(--red);
+        -webkit-text-stroke: 0.2px;
+        -webkit-text-stroke-color: black;
+    }
+}
+
+.text-stroke-red {
+    -webkit-text-stroke: 2px;
+    -webkit-text-stroke-color: var(--red);
+    color: var(--white);
+    font-family: robotobold;
+}
+
+
+/***********************************************************************************************************************
+                                        CSS projets
+ *********************************************************************************************************************/
+
+.projet-desktop {
+    margin-top: 3vmax;
+    margin-bottom: 5vmax;
+    display: block;
+    position: relative;
+    border-radius: 50%;
+    border: 2px solid black;
+    height: 40vmax;
+}
+
+.projetun, .projetdeux, .projettrois, .projetquatre {
+    position: absolute !important;
+    height: 1.5vmax;
+    width: 1.5vmax;
+    background-color: var(--red);
+    border-radius: 50%;
+}
+
+.projetun:hover, .projetdeux:hover, .projettrois:hover, .projetquatre:hover {
+    background-color: var(--white);
+    border: 1px solid var(--red);
+    transform: scale(5);
+    transition: 0.7s;
+    }
+
+.projetun {
+    left: 48.5%;
+    top: -2%;
+}
+
+.projetdeux {
+    top: 49%;
+    left: -2%;
+}
+
+.projettrois {
+    top: 49%;
+    left: 98.5%;
+}
+
+
+.projetquatre {
+    top: 98%;
+    left: 48.5%;
+}
+
+.fleche {
+    position: absolute;
+    background-color: var(--red);
+    clip-path: polygon(50% 0%, 25% 10%, 74% 10%);
+    height: 10vh;
+    width: 4vw;
+    transform: rotate(var(--rotate));
+    left: var(--left);
+    top: var(--top);
+    transition: 0.7s;
+}
+
+.textprojet {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.textprojet > .active {
+    display: block;
+    text-align: center;
+    }
+
+.textprojet > .inactive {
+    display: none;
+    }
+
+.textprojet img {
+    position: absolute;
+    height: 85%;
+    width: 85%;
+    border-radius: 50%;
+    opacity: 0.2;
+    top: 7.5%;
+    left: 7.5%;
+    z-index: 1;
+    }
+
+.textprojet h1 {
+    font-size: 1.5em;
+    text-shadow: 1px 1px 1px white;
+    z-index: 99;
+    }
+
+@media (max-width: 992px){
+    .fleche{
+        display: none;
+    }
+}
+/**********************************************************************************************************************
+                                Css Skills
+ *********************************************************************************************************************/
+.text-skills {
+    font-weight: 500;
+    font-size: 3vmax;
+}
+
+/**********************************************************************************************************************
+                                    CSS contact
+ *********************************************************************************************************************/
+a.email{
+    background-size: 100% 100%;
+    opacity: 0.99;
+}
+.email:hover{
+    animation: underlines 1s;
+}
+
+
+@keyframes underlines {
+    from {
+        background-size: 100% 100%;
+        background-position: bottom right;
+    }
+
+    50% {
+        background-size: 0 100%;
+        background-position: bottom right;
+    }
+
+    50.01% {
+        background-position: bottom left;
+    }
+
+    100% {
+        background-size: 100% 100%;
+        background-position: bottom left;
+    }
+}
+
+.text-email{
+    font-weight: 500;
+    font-size: 3vmax;
+}
+
+.text-linkedin{
+    margin-top: 10vmax;
+    font-weight: 500;
+    font-size: 2vmax;
+}
